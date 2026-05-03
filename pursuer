@@ -16,35 +16,53 @@ local Accessories = {
         TextureId = "92726717965695",
         Names = {"Handle"}
     }
-}
-
 local function LoadAccessories()
-    for _, AccData in pairs(Accessories) do
-        local Acc = Instance.new("Accessory")
-        local Handle = Instance.new("Part")
-        Handle.Name = "Handle"
-        Handle.Size = Vector3.new(1,1,1)
-        Handle.Transparency = 1
-        Handle.CanCollide = false
-        Handle.Anchored = false
-        Handle.Parent = Acc
-        
-        local Mesh = Instance.new("SpecialMesh")
-        Mesh.MeshId = "rbxassetid://"..AccData.MeshId
-        Mesh.TextureId = "rbxassetid://"..AccData.TextureId
-        Mesh.Parent = Handle
-        
-        local Weld = Instance.new("WeldConstraint")
-        Weld.Part0 = Handle
-        Weld.Part1 = Character.RightHand
-        Weld.Parent = Handle
-        
-        Handle.CFrame = Character.RightHand.CFrame * CFrame.new(0, -0.5, 0) * CFrame.Angles(math.rad(-90), 0, 0)
-        
-        Acc.Parent = Character
-    end
-end
+    -- PEDANG DI TANGAN KANAN
+    local Acc1 = Instance.new("Accessory")
+    local Handle1 = Instance.new("Part")
+    Handle1.Name = "Handle"
+    Handle1.Size = Vector3.new(1,1,1)
+    Handle1.Transparency = 1
+    Handle1.CanCollide = false
+    Handle1.Anchored = false
+    Handle1.Parent = Acc1
+    
+    local Mesh1 = Instance.new("SpecialMesh")
+    Mesh1.MeshId = "rbxassetid://94622218233849"
+    Mesh1.TextureId = "rbxassetid://94622218233849"
+    Mesh1.Parent = Handle1
+    
+    local Weld1 = Instance.new("WeldConstraint")
+    Weld1.Part0 = Handle1
+    Weld1.Part1 = Character.RightHand
+    Weld1.Parent = Handle1
+    Handle1.CFrame = Character.RightHand.CFrame * CFrame.new(0, -0.5, 0) * CFrame.Angles(math.rad(-90), 0, 0)
+    Acc1.Parent = Character
 
+    -- PEDANG DI PINGGANG BELAKANG
+    local Acc2 = Instance.new("Accessory")
+    local Handle2 = Instance.new("Part")
+    Handle2.Name = "Handle"
+    Handle2.Size = Vector3.new(1,1,1)
+    Handle2.Transparency = 1
+    Handle2.CanCollide = false
+    Handle2.Anchored = false
+    Handle2.Parent = Acc2
+    
+    local Mesh2 = Instance.new("SpecialMesh")
+    Mesh2.MeshId = "rbxassetid://92726717965695"
+    Mesh2.TextureId = "rbxassetid://92726717965695"
+    Mesh2.Parent = Handle2
+    
+    local Weld2 = Instance.new("WeldConstraint")
+    Weld2.Part0 = Handle2
+    Weld2.Part1 = Character.Torso -- Nempel di badan
+    Weld2.Parent = Handle2
+    
+    -- Posisi di pinggang belakang
+    Handle2.CFrame = Character.Torso.CFrame * CFrame.new(0, -1, 1.5) * CFrame.Angles(math.rad(0), math.rad(180), math.rad(0))
+    Acc2.Parent = Character
+end
 local Path = "FESaken/PursuerJason/Sounds/"
 local Theme
 if not isfolder(Path) then makefolder(Path) end
